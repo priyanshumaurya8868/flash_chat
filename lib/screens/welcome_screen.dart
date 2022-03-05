@@ -1,4 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation animation;
+
+
 
   @override
   void initState() {
@@ -36,6 +40,16 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   }
   @override
   Widget build(BuildContext context) {
+
+    animation.addListener(() async{
+      if(animation.isCompleted){
+        if(FirebaseAuth.instance.currentUser != null){
+        await Navigator.pushNamed(context, ChatScreen.route);
+          dispose();
+        }
+      }
+    });
+
     return Scaffold(
       backgroundColor: animation.value,
       body: Padding(
