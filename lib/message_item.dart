@@ -21,9 +21,6 @@ class MessageItem extends StatelessWidget {
           msgMap["email"],
           style: const TextStyle(color: Colors.grey),
         ),
-        const SizedBox(
-          height: 2.0,
-        ),
         Material(
           elevation: 5.0,
           //adaptive border radius
@@ -39,7 +36,7 @@ class MessageItem extends StatelessWidget {
           //adaptive color
           color: msgMap["email"] == loggedUser.email
               ? Colors.lightBlueAccent.shade100
-              : Colors.white70,
+              : Colors.white,
           child: Container(
             padding: const EdgeInsets.symmetric(
                 vertical: 10.0, horizontal: 15.0),
@@ -47,7 +44,7 @@ class MessageItem extends StatelessWidget {
               msgMap["msg"],
               style: msgMap["email"] == loggedUser.email
                   ? TextStyle(color: Colors.white)
-                  : TextStyle(color: Colors.black87),
+                  : TextStyle(color: Colors.black54),
             ),
           ),
         ),
