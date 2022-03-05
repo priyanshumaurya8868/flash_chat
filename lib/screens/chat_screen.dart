@@ -120,6 +120,7 @@ class _ChatScreenState extends State<ChatScreen> {
         "time": time["ntpTime"].toString()
       };
       await firestore.collection("messages").add(map);
+      msg ="";
       return true;
     } else {
       return false;
@@ -131,5 +132,5 @@ class _ChatScreenState extends State<ChatScreen> {
 // ntp- stackOverFlow : https://stackoverflow.com/questions/64026825/how-to-get-network-datetime-now
 
 //TODO: Modal prog bar
-//TODO refactor
+//TODO sending rept
 
